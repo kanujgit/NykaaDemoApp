@@ -1,4 +1,4 @@
-package com.nykaa.nykaademoapp
+package com.nykaa.nykaademoapp.ui.productlist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
