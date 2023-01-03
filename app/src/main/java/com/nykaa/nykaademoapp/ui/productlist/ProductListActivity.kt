@@ -5,11 +5,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.nykaa.nykaademoapp.api.ApiState
 import com.nykaa.nykaademoapp.core.di.subcomponent.DashboardComponent
 import com.nykaa.nykaademoapp.core.getAppComponent
 import com.nykaa.nykaademoapp.core.hide
 import com.nykaa.nykaademoapp.core.show
+import com.nykaa.nykaademoapp.data.model.Products
 import com.nykaa.nykaademoapp.data.model.Response
 import com.nykaa.nykaademoapp.databinding.ActivityProductListBinding
 import com.nykaa.nykaademoapp.ui.productlist.adapter.ProductListAdapter
@@ -26,7 +29,7 @@ class ProductListActivity : AppCompatActivity() {
 
     private val viewModel: ProductListViewModel by viewModels { viewModelFactory }
 
-    private var productList = mutableListOf<Response>()
+    private var productList = mutableListOf<Products>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +44,8 @@ class ProductListActivity : AppCompatActivity() {
         val prdAdapter = ProductListAdapter(productList) { repoData, sharedView ->
             Timber.d("click")
         }
+        binding.recPrdList.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
+        binding.recPrdList.adapter = prdAdapter
 
 
         lifecycleScope.launchWhenCreated {
@@ -54,10 +59,13 @@ class ProductListActivity : AppCompatActivity() {
                     }
                     is ApiState.Success -> {
                         Timber.d("data : ${it.data}")
+
+                        val res = it.data as Response
+                        Timber.d("res $res")
                         binding.lottieAnimation.hide()
                         binding.progressBar.hide()
                         productList.clear()
-                        productList.add(it.data as Response)
+                        productList.addAll(res.products)
                         prdAdapter.notifyDataSetChanged()
                         Timber.d("product list : $productList")
                     }
