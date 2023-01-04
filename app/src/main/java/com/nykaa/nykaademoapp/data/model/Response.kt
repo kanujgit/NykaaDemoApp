@@ -9,7 +9,7 @@ data class Response(
     @SerializedName("product_count") var productCount: Int? = null,
     @SerializedName("total_found") var totalFound: Int? = null,
     @SerializedName("offset") var offset: Int? = null,
-    @SerializedName("products") var products: ArrayList<Products> = arrayListOf(),
+    @SerializedName("products") var products: List<Products>,
     @SerializedName("font_color") var fontColor: String? = null,
     @SerializedName("banner_video") var bannerVideo: String? = null,
     @SerializedName("filter_keys") var filterKeys: FilterKeys? = FilterKeys(),
