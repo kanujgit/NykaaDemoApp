@@ -5,11 +5,9 @@
 
 # NykaaDemo App
 
-This is sample app of using Flow, paging, MVVM
+This is sample app of using Flow, paging 3 , MVVM.
 
 ### Project Overview
-
-The goal is to create a Demo app.
 
 The codebase focuses on following key things:
 - Code structuring, style and comments
