@@ -3,6 +3,7 @@ package com.nykaa.nykaademoapp.core.di.module
 import com.google.gson.GsonBuilder
 import com.nykaa.nykaademoapp.api.ApiConstant
 import com.nykaa.nykaademoapp.api.ApiService
+import com.nykaa.nykaademoapp.ui.productlist.paging.ProductPagingSource
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -38,6 +39,11 @@ class NetworkModule {
     @Singleton
     fun providesApiServices(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    fun provideProductPagingSource(api: ApiService): ProductPagingSource {
+        return ProductPagingSource(api)
     }
 
 }
