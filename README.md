@@ -5,19 +5,20 @@
 
 # NykaaDemo App
 
-This is sample app of using Flow, paging, MVVM
+This is sample app of using Flow, Paging3, MVVM.
 
 ### Project Overview
 
-The goal is to create a Demo app.
-
 The codebase focuses on following key things:
-- Code structuring, style and comments
-- Kotlin + Coroutines
-- coroutine flow
-- Retrofit
-- Paging 3
 
+
+- Code structuring, style and comments.
+- [Retrofit](https://square.github.io/retrofit/)
+- [Dagger](https://insert-koin.io/)
+- [Paging3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+- [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
+- [Livedata](https://developer.android.com/topic/libraries/architecture/livedata)
+- [Flow](https://developer.android.com/kotlin/flow)
 
 
 ## Architecture
