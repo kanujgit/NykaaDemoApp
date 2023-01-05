@@ -9,7 +9,7 @@ fun AppCompatActivity.getAppComponent() =
     (this.application as NykaaApplication).applicationComponent
 
 fun AppCompatActivity.showToast(msg: String) {
-    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
 }
 
 fun View.show() {
@@ -22,4 +22,8 @@ fun View.invisible() {
 
 fun View.hide() {
     visibility = View.GONE
+}
+
+fun View.visible(isVisible: Boolean) {
+    visibility = if (isVisible) View.VISIBLE else View.GONE
 }
